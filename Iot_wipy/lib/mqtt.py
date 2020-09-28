@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-#
-# Copyright (c) 2019, Pycom Limited.
-#
-# This software is licensed under the GNU GPL version 3 or any
-# later version, with permitted additional terms. For more information
-# see the Pycom Licence v1.0 document supplied with this file, or
-# available at https://www.pycom.io/opensource/licensing
-#
-
 import usocket as socket
 import ustruct as struct
 from ubinascii import hexlify
@@ -146,7 +136,7 @@ class MQTTClient:
         #print(hex(len(pkt)), hexlify(pkt, ":"))
         self.sock.write(pkt)
         self._send_str(topic)
-        self.sock.write(qos.to_bytes(1, 'little'))
+        self.sock.write(qos.to_bytes(1, "little"))
         while 1:
             op = self.wait_msg()
             if op == 0x90:
@@ -199,3 +189,4 @@ class MQTTClient:
     def check_msg(self):
         self.sock.setblocking(False)
         return self.wait_msg()
+

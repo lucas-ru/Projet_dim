@@ -9,10 +9,10 @@ from network import WLAN
 from mqtt import MQTTClient
 from SI7006A20 import SI7006A20
 
-IBMorgID='4dvbez' # Identifiant de l'instance 'IoT PLatform' sur 6 caractères
+IBMorgID='y15qu1' # Identifiant de l'instance 'IoT PLatform' sur 6 caractères
 deviceType='Pycom' # Nom du 'Device Type' défini dans le IoT Platform
-deviceID='4322' # ID du device (4 dernieres caractères du SSID)
-deviceToken='wH&0t122cH6iebA*q?' # Token (mot de passe) défini pour le device dans le Iot Platform
+deviceID='4325' # ID du device (4 dernieres caractères du SSID)
+deviceToken='jf4(8uNvdYs5IKh*uq' # Token (mot de passe) défini pour le device dans le Iot Platform
 
 rtc=machine.RTC()#Besoin pour avori la date
 rtc.ntp_sync("fr.pool.ntp.org")
@@ -44,7 +44,7 @@ while not wlan.isconnected():
 
 
 # Syntaxe pour envoyer un paquet MQTT à IBM Cloud
-client = MQTTClient("d:"+IBMorgID+":"+deviceType+":"+deviceID, IBMorgID +".messaging.internetofthings.ibmcloud.com", user="use-token-auth", password=deviceToken, port=1883)
+client = MQTTClient("d:"+IBMorgID+":"+deviceType+":"+deviceID, IBMorgID +".messaging.internetofthings.ibmcloud.com", user="use-token-auth", password=deviceToken, port=8883)
 print(client.connect())
 
 
