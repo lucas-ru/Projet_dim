@@ -11,8 +11,8 @@ from SI7006A20 import SI7006A20
 
 IBMorgID='4dvbez' # Identifiant de l'instance 'IoT PLatform' sur 6 caractères
 deviceType='Pycom' # Nom du 'Device Type' défini dans le IoT Platform
-deviceID='4321' # ID du device (4 dernieres caractères du SSID)
-deviceToken='fzKYk0T3ZFK_(NDj?X' # Token (mot de passe) défini pour le device dans le Iot Platform
+deviceID='4322' # ID du device (4 dernieres caractères du SSID)
+deviceToken='wH&0t122cH6iebA*q?' # Token (mot de passe) défini pour le device dans le Iot Platform
 
 pycom.heartbeat(False)
 # pycom.rgbled(0xFF0000) # white
