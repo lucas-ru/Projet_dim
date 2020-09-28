@@ -44,17 +44,18 @@ while not wlan.isconnected():
 
 
 # Syntaxe pour envoyer un paquet MQTT à IBM Cloud
-client = MQTTClient("d:"+IBMorgID+":"+deviceType+":"+deviceID, IBMorgID +".messaging.internetofthings.ibmcloud.com", user="use-token-auth", password=deviceToken, port=8883)
+client = MQTTClient("d:"+IBMorgID+":"+deviceType+":"+deviceID, IBMorgID +".messaging.internetofthings.ibmcloud.com", user="use-token-auth", password=deviceToken, port=1883)
 print(client.connect())
 
-
+# var clientId  = 'd:myOrgId:Pycom:4325';
+# var client = new Messaging.Client("y15qu1.messaging.internetofthings.ibmcloud.com", 1883, clientId);
 
 
 while True:
     print("Sending")
     mqttMsg = '{'
-    mqttMsg = mqttMsg + '"t":' + str(si.temperature())
-    mqttMsg = mqttMsg + 'date : '  +str(rtc.now()[2])+"/"+str(rtc.now()[1])+"/"+str(rtc.now()[0])+" "+str(rtc.now()[3]+UTCvar)+':'+str(rtc.now()[4])+':'+str(rtc.now()[5])
+    mqttMsg = mqttMsg + '"t":' + '"' + str(si.temperature()) + '"'
+    #mqttMsg = mqttMsg + ',"date" : "'  +str(rtc.now()[2])+"/"+str(rtc.now()[1])+"/"+str(rtc.now()[0])+" "+str(rtc.now()[3]+UTCvar)+':'+str(rtc.now()[4])+':'+str(rtc.now()[5] + '"')
     mqttMsg = mqttMsg + '}'
     client.publish(topic="iot-2/evt/data/fmt/json", msg=mqttMsg)
     time.sleep(2)
